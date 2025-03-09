@@ -16,7 +16,7 @@ def prob_matrix(kmer_matrix): #generates a prob matrix of the input kmer
 
     frequency = []
     for i in range(k):
-        frequency.append([1, 1, 1, 1])
+        frequency.append([1, 1, 1, 1]) #ACGT
 
     for kmer in kmer_matrix:
         for i in range(k):
@@ -24,7 +24,7 @@ def prob_matrix(kmer_matrix): #generates a prob matrix of the input kmer
 
     for i in range(len(frequency)): #converting frequency into probability
         for j in range(len(frequency[0])):
-            frequency[i][j] = (frequency[i][j]*1.0)/(d+1)
+            frequency[i][j] = (frequency[i][j])/(d+1)
             
     return frequency
 
