@@ -36,15 +36,14 @@ def lin_mass_spec(seq): #working well
     sub_mass.sort()
     return sub_mass
 
-def IN(lst1, lst2):#I think this works well, does the same function as: (lst1 in lst2)
+def IN(lst1, lst2):#working well, does the same function as: (lst1 in lst2)
     temp_lst1 = lst1[:]
     temp_lst2 = lst2[:]
-    temp_len_lst2 = len(lst2)
 
     for num in temp_lst1:
         if num in temp_lst2:
             temp_lst2.remove(num)
-    if (temp_len_lst2 - len(temp_lst2)) == len(lst1):
+    if (len(lst2) - len(temp_lst2)) == len(lst1):
         return True
     else:
         return False
