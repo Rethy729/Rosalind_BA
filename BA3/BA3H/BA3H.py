@@ -4,8 +4,7 @@ data = raw_data.split('\n')[:-1]
 k = data[0]
 kmers = data[1:]
 
-def make_graph(k, kmers):
-
+def make_graph(kmers):
     graph = {}
     for kmer in kmers:
         if kmer in graph:
@@ -23,20 +22,21 @@ def start_end(graph):
 
     in_and_out = []
     for key in graph:
-        in_and_out.append([key, 0])
+        in_and_out.append([key, 0]) #number is the balance
     
     for i in range(len(in_and_out)):
-        in_and_out[i][1] -= len(graph[in_and_out[i][0]])
-        for node in graph[in_and_out[i][0]]:
+        in_and_out[i][1] -= len(graph[in_and_out[i][0]]) #minus for number of diverging edges starting from in_and_out[i][0]
+
+        for node in graph[in_and_out[i][0]]: #plus for conserving edges starting from in_and_out[i][0]
             for j in range(len(in_and_out)):
                 if in_and_out[j][0] == node:
                     in_and_out[j][1] += 1
     
     for pair in in_and_out:
-        if pair[1] == -1:
+        if pair[1] == -1:  #balance == -1 -> the path starts here
             start = pair[0]
             
-        elif pair[1] == 1:
+        elif pair[1] == 1: #balance == +1 -> the path ends here
             end = pair[0]
             
     return start, end
@@ -81,11 +81,10 @@ def EulerianPath(start_node, end_node, graph):
     return cycle
 
 def list_to_string(lst):
-
     sum_string = lst[0]
     for kmer in lst[1:]:
         sum_string = sum_string + kmer[-1]
     return sum_string
     
-start, end = start_end(make_graph(k, kmers))
-print (list_to_string(EulerianPath(start, end, make_graph(k, kmers))))
+start, end = start_end(make_graph(kmers))
+print (list_to_string(EulerianPath(start, end, make_graph(kmers))))
