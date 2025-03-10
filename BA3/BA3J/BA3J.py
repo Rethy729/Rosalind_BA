@@ -2,6 +2,7 @@ f = open("rosalind_ba3j.txt", 'r')
 data = f.readlines()
 k = list(map(int, data[0].split(' ')))[0]
 d = list(map(int, data[0].split(' ')))[1]
+dataline = len(data)-1
 
 def debruijn(data):
     db_nodes = []
@@ -108,7 +109,7 @@ def list_to_string(lst):
     for string in sum_suffix_lst[1:]:
         suffix_str += string[-1]
 
-    match = 2*(k+len(sum_prefix_lst)-1) - ((2*k)+d+len(lst)-2)
+    match = 2*(k+dataline-1) - ((2*k)+d+dataline-1)
     return prefix_str + suffix_str[match:]
 
 #print (debruijn(data))
