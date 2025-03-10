@@ -10,7 +10,7 @@ graph = {}
 for edge in edge_data:
     graph[int(edge[0])] = list(map(int, edge[1].split(',')))
 
-def start_end(graph):
+def start_end(graph): #Determines the start node & ending node, using the property that these nodes are not balanced. (has to be -1 or +1)
 
     key_list = list(graph)
     value_list = []
@@ -52,7 +52,7 @@ def EulerianPath(start_node, end_node, graph):
     cycle = [start_node]
     arr_node = graph[start_node].pop()
 
-    while arr_node != end_node:
+    while arr_node != end_node:    #The initial "path" starting from start_node and ends at the end_node
         cycle.append(arr_node)
         arr_node = graph[arr_node].pop()
     cycle.append(arr_node)
