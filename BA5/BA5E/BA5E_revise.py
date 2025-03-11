@@ -3,7 +3,7 @@ data = f.readlines()
 char_lst = ['A','C','D','E','F','G','H','I','K','L','M','N','P','Q','R','S','T','V','W','Y','-']
 BLOSUM62 = []
 for line in data[1:]:
-    BLOSUM62.append(list(map(int, line.replace('  ', ' ').split(' '))))
+    BLOSUM62.append(list(map(int, line.split())))
 #print (BLOSUM62)
 
 f = open('rosalind_ba5e.txt', 'r')
