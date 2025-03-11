@@ -68,6 +68,7 @@ def Backtracking(score):
         route = 'd' + route
     for i in range(sij):
         route = 'i' + route
+
     return route
 
 def route_to_alignment(str1, str2, route):
