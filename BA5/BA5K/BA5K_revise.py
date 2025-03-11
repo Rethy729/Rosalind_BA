@@ -1,3 +1,4 @@
+
 f = open('BLOSUM62.txt', 'r')
 data = f.readlines()
 char_lst = ['A','C','D','E','F','G','H','I','K','L','M','N','P','Q','R','S','T','V','W','Y','-']
@@ -57,7 +58,7 @@ def MidNode_and_MidEdge(top, bottom, left, right, h_string, v_string, score):
         for i in range(1, m):
             score_matrix[i][1] = -99999999
         column_number += 1
-    #print (score_matrix)
+    print (score_matrix)
 
     #start from the sink
     h_str_rev = h_str[::-1]
@@ -90,7 +91,7 @@ def MidNode_and_MidEdge(top, bottom, left, right, h_string, v_string, score):
         for i in range(1, m):
             rev_score_matrix[i][1] = -99999999
         column_number += 1
-    #print (rev_score_matrix)
+    print (rev_score_matrix)
 
     #by summing, determine the middle node
     max_sum = -99999999
@@ -100,13 +101,14 @@ def MidNode_and_MidEdge(top, bottom, left, right, h_string, v_string, score):
             max_sum = score_matrix[i][1]+rev_score_matrix[(bottom-top)-i][1]
             max_index = i + top
     middle_node = [max_index, middle]
-    if vector[max_index-top] == 2:
+
+    if vector[(bottom-top)-max_index] == 2:
         next_node = [middle_node[0]+1, middle_node[1]+1]
     else:
         next_node = [middle_node[0], middle_node[1]+1]
 
-    print (middle_node)
-    print (next_node)
+    print (tuple(middle_node))
+    print (tuple(next_node))
 
 horizontal_string = string_2
 vertical_string = string_1
