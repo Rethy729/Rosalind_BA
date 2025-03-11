@@ -46,6 +46,7 @@ def MidNode(diago):
         for j in range(1, n):
             score_matrix[i][j] = max(score_matrix[i - 1][j] + indel, score_matrix[i][j - 1] + indel,
                                      score_matrix[i - 1][j - 1] + diago[i - 1][j - 1])
+    print (score_matrix)
     middle = len(diago[0])//2
 
     middle_column = []
