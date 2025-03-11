@@ -71,7 +71,7 @@ def Backtracking(score):
 
     return route
 
-def route_to_alignment(str1, str2, route):
+def route_to_alignment(str1, str2, route): #str1 is horizontal, str2 is vertical
     align_str1 = ''
     align_str2 = ''
     index_1 = 0
@@ -97,4 +97,3 @@ d = (matrix_maker(string_1, string_2, BLOSUM62))
 score = DP(d)
 print (score[-1][-1])
 route_to_alignment(string_1, string_2, Backtracking(score))
-
