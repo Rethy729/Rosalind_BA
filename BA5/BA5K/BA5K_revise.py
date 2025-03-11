@@ -100,7 +100,7 @@ def MidNode_and_MidEdge(top, bottom, left, right, h_string, v_string, score):
             max_sum = score_matrix[i][1]+rev_score_matrix[(bottom-top)-i][1]
             max_index = i + top
     middle_node = [max_index, middle]
-    if vector[(top+bottom)-max_index] == 2:
+    if vector[max_index-top] == 2:
         next_node = [middle_node[0]+1, middle_node[1]+1]
     else:
         next_node = [middle_node[0], middle_node[1]+1]
