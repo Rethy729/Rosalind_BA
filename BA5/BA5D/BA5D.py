@@ -31,7 +31,7 @@ def longest_path(graph):
     distance[source] = 0
     route[source].append(source)
 
-    expected_search = []
+    expected_search = []  #the first node to visit
     expected_search.append(source)
 
     while expected_search != []:
@@ -39,7 +39,7 @@ def longest_path(graph):
         for start_node in expected_search:
             if start_node in graph:
 
-                for key in graph[start_node]:
+                for key in graph[start_node]: #the next node to visit
                     next_expected_search.append(key)
 
                 for arr_node in graph[start_node]:
