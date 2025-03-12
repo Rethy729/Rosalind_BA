@@ -1,6 +1,6 @@
 f = open('rosalind_ba6a.txt', 'r')
 data = f.readlines()
-permutation = list(map(int, data[0][1:-1].split(' ')))
+permutation = list(map(int, data[0][1:-2].split(' ')))
 
 def lsttostr(lst):
     lst_str = []
