@@ -9,7 +9,7 @@ def data_processing(data):
     return edges
 
 genome_graph = data_processing(data) #[[2, 3], [4, 5] ....]
-#print(genome_graph)
+print(genome_graph)
 
 def lsttostr(lst):
     lst_str = []
@@ -37,6 +37,7 @@ def next_edge_determine(num):
 
 def graph_to_genome(graph_edges):
     cycles = []
+
     while len(graph_edges) != 0:
         temp_cycle = []
         temp_cycle.append(graph_edges[0])
@@ -51,8 +52,14 @@ def graph_to_genome(graph_edges):
                     break_bool = True
                     temp_cycle.append(edge)
                     graph_edges.remove(edge)
+                elif next_edge_determine(temp_cycle[-1][1]) == edge[1]:
+                    break_bool = True
+                    temp_cycle.append(edge[::-1])
+                    graph_edges.remove(edge)
+        print (temp_cycle)
         cycles.append(temp_cycle)
-    #print (cycles)
+
+    print (cycles)
     cycles_line = []
     for cycle in cycles:
         temp_cyc = []
@@ -61,8 +68,9 @@ def graph_to_genome(graph_edges):
             temp_cyc.append(edges[1])
         temp_cyc_2 = temp_cyc[:-1]
         cycles_line.append([temp_cyc[-1]]+temp_cyc_2)
-    #print (cycles_line)
+    print (cycles_line)
     chromosome = []
+
     for line in cycles_line:
         chromosome.append(cycle_to_chromosome(line))
     return chromosome
