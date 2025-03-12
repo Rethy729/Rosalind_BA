@@ -36,9 +36,7 @@ def next_edge_determine(num):
         return num+1
 
 def graph_to_genome(graph_edges):
-
     cycles = []
-
     while len(graph_edges) != 0:
         temp_cycle = []
         temp_cycle.append(graph_edges[0])
@@ -55,7 +53,6 @@ def graph_to_genome(graph_edges):
                     graph_edges.remove(edge)
         cycles.append(temp_cycle)
     #print (cycles)
-
     cycles_line = []
     for cycle in cycles:
         temp_cyc = []
@@ -64,11 +61,10 @@ def graph_to_genome(graph_edges):
             temp_cyc.append(edges[1])
         temp_cyc_2 = temp_cyc[:-1]
         cycles_line.append([temp_cyc[-1]]+temp_cyc_2)
-
     #print (cycles_line)
     chromosome = []
     for line in cycles_line:
         chromosome.append(cycle_to_chromosome(line))
-
     return chromosome
+
 print (''.join(map(str, graph_to_genome(genome_graph))))
