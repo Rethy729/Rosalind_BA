@@ -52,7 +52,7 @@ def BFS(max_node, graph, pivot):
 
 n, max_node, tree = graph(data)
 #print (n)
-#print (tree)
+print (tree)
 #print (BFS(max_node, tree, 3))
 
 def make_matrix(n, max_node, tree):
