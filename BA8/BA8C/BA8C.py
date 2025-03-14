@@ -9,7 +9,6 @@ def data_processing(data):
         point = list(map(float, coordinate.strip().split(' ')))
         points.append(point)
 
-    centers = points[:k]
     return k, points
 
 k, points = data_processing(data)
