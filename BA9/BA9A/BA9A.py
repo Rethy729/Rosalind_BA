@@ -27,7 +27,7 @@ def trie_construction(patterns):
     return trie #{symbol:{node:node}}
 
 answer = trie_construction(patterns)
-print (answer)
+#print (answer)
 edges = []
 for key in answer:
     for node in answer[key]:
