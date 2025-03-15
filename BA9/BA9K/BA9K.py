@@ -8,7 +8,7 @@ i = int(data[1].strip())
 def sort_key(tuple):
     return tuple[0].replace('$', ' ')
 
-def inverse_BWT(bwt):
+def last_to_first(bwt, i):
     bwt_with_index = []
     index_dict = defaultdict(int)
     for letter in bwt:
@@ -19,4 +19,4 @@ def inverse_BWT(bwt):
     tuple = bwt_with_index[i]
     return (bwt_sort.index(tuple))
 
-print(inverse_BWT(BWT))
+print(last_to_first(BWT, i))
