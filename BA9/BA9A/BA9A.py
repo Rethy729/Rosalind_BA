@@ -24,11 +24,10 @@ def trie_construction(patterns):
                 trie[str(letter)][current_node] = new_node
                 current_node = new_node
                 new_node += 1
-    return trie
-#The most decent code I wrote....
+    return trie #{symbol:{node:node}}
 
 answer = trie_construction(patterns)
-
+print (answer)
 edges = []
 for key in answer:
     for node in answer[key]:
