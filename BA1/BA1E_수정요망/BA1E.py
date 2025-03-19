@@ -24,3 +24,5 @@ for i in range(len(string)-l+1):
 answer_list = list(answer)
 
 print(' '.join(map(str, answer_list)))
+
+#O(|string| * l)
