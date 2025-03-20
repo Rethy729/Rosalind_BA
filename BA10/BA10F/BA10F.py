@@ -26,7 +26,6 @@ def data_processing(data):
     return sym, align_matrix, include_column, exclude_column, pseudo
 
 sym, align_matrix, include_column, exclude_column, pseudo = data_processing(data)
-print (pseudo)
 
 def HMM_gen(sym, align_matrix, include_column, exclude_column, pseudo):
 
