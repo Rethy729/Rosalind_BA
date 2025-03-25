@@ -47,7 +47,7 @@ def size_dict(spectrum, threshold, max_score):
                 continue
             score_lst = []
             for aa in possible_aa:
-                if aa == 113 or aa == 128:
+                if aa == 113 or aa == 128: #two same mass aa -> have to double the score
                     score_lst.append(2 * matrix[j - spec_score][i - aa])
                 else:
                     score_lst.append(matrix[j-spec_score][i-aa])
