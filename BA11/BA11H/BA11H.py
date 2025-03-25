@@ -1,9 +1,3 @@
-
-aa_mass = {'G':57, 'A':71, 'S':87, 'P':97, 'V':99, 'T':101, 'C':103, 'I':113, 'L':113, 'N':114,
-                'D':115, 'K':128, 'Q':128, 'E':129, 'M':131, 'H':137, 'F':147, 'R':156, 'Y':163, 'W':186} #20
-
-mass_aa = {k: v for v, k in aa_mass.items()}
-
 f = open('rosalind_ba11h.txt', 'r')
 data = f.readlines()
 
@@ -14,8 +8,6 @@ def data_processing(data):
     return spectrum, threshold, max_score
 
 spectrum, threshold, max_score = data_processing(data)
-
-print (spectrum, threshold, max_score)
 
 def size_dict(spectrum, threshold, max_score):
     #matrix generation
@@ -60,10 +52,11 @@ def size_dict(spectrum, threshold, max_score):
                 else:
                     score_lst.append(matrix[j-spec_score][i-aa])
             matrix[j][i] = sum(score_lst)
+    #count the dict_count
     dict_count = 0
     for i in range(threshold, max_score+1):
         dict_count += matrix[i][-1]
-    print (dict_count)
+    return dict_count
 
-
-size_dict(spectrum, threshold, max_score)
+answer = size_dict(spectrum, threshold, max_score)
+print (answer)
